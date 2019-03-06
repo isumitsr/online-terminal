@@ -1,0 +1,9 @@
+FROM gcc:7.3
+ENV ENV="/etc/bash.bashrc"
+COPY howto /usr/local/bin
+WORKDIR /home
+RUN apt-get update && \
+apt-get -y install nano vim libc6-dev && \
+rm -rf /var/lib/apt/lists/* && \
+echo "howto" > "$ENV"
+ENTRYPOINT "howto"

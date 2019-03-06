@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Terminal Platform</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-white portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="#"><b>Linux Terminal Platform</b></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+         
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="https://github.com/isumitsr" target="_blank">Creator's Github</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <main class="page">
+        <section class="portfolio-block block-intro" style="height:100%;padding:16px;margin-bottom:12px;">
+            <div class="container">
+                <div class="about-me" style="width:auto;">
+                    <p>Code, Compile & Run.</p>
+                    <form action="docker.py" id="form" method="POST">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: inline-block; width:auto;">
+                          <label class="btn btn-outline-primary">
+                            <input type="radio" name="language" value="C" autocomplete="off"> C
+                          </label>
+                          <label class="btn btn-outline-primary active">
+                            <input type="radio" name="language" value="CPP" autocomplete="off"> C++
+                          </label>
+                          <label class="btn btn-outline-primary">
+                            <input type="radio" name="language" value="Python" autocomplete="off"> Python 2/3
+                          </label>
+                          <label class="btn btn-outline-primary">
+                            <input type="radio" name="language" value="Java" autocomplete="off"> Java
+                          </label>
+                          <label class="btn btn-outline-primary">
+                            <input type="radio" name="language" value="Fortran" autocomplete="off"> Fortran
+                          </label>
+                          <label class="btn btn-outline-primary">
+                            <input type="radio" name="language" value="Go" autocomplete="off"> Go
+                          </label>
+                          <label class="btn btn-outline-primary">
+                            <input type="radio" name="language" autocomplete="off"> Lisp
+                          </label>
+                        </div>
+                                                
+                    </div>
+                    <p style="font-size:14px;"><u>Help:</u> Hit the <strong><b>Go</b></strong> button below.<br> Use <strong><b>howto</b></strong> command to display instructions.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="gradient">
+        <div class="container">
+        <div class="row" style=" align-items: center; justify-content: center;">
+                <div class="col-md-6 col-lg-9 offset-lg-1" style="margin-top: 2%">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Total Characters</th>
+                                    <th>Total Word</th>
+                                    <th>Total Lines</th>
+                                    <th>Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="char_count">0</td>
+                                    <td id="word_count">0</td>
+                                    <td id="line_count">0</td>
+                                    <td id="byte_count">0</td>
+                                </tr>
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-1 offset-lg-0 d-flex d-flex justify-content-center align-content-center align-self-center" >
+                <button class="btn btn-outline-primary" style="color: #FFFFFF; border-color: #FFFFFF; padding: 12px 32px" type="submit">GO</button>
+            </div>
+        </div>
+
+            <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                <div class="col" style="width:100%;height:100%;margin:5% 0% 5% 0%;">
+                    <textarea id="codeArea" wrap="physical" onFocus="window.scrollTo(0, 0);" placeholder="" style="width:100%;height:500px;padding:2px 2px 0px 2px;" autofocus></textarea>
+                </div>
+                <div class="col-md-6" style="height:100%;width: 100%"><iframe id="codeOutput" name="codeOutput" src="terminal.html" style="width:100%;height:500px"></iframe>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    </form>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="social-icons"><a href="https://www.linkedin.com/in/iamsumitc/" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href=""><i class="icon ion-social-github"></i></a><a href="mailto:iamsumit.sc@gmail.com"><i class="icon ion-email"></i></a></div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script> 
+    <script type="text/javascript">
+        document.getElementById("codeArea").placeholder = `#include <iostream>
+using namespace std;
+
+int main()  
+{       
+    cout << "Hello, World!";        
+    return 0;   
+}`;
+        // set textarea value text
+$('#form input').on('change', function() {
+        
+        switch($('input[name=language]:checked', '#form').val()) {
+        case "C":
+            code = `    #include <stdio.h>
+int main()
+{
+   // printf() displays the string inside quotation
+   printf("Hello, World!");
+   return 0;
+}`;
+            break;
+        case "CPP":
+            code = `#include <iostream>
+using namespace std;
+
+int main()  
+{       
+    cout << "Hello, World!";        
+    return 0;   
+}`;
+            break;
+        case "Python":
+            code = `    #!/usr/bin/python2
+            print("This line will be printed.")`;
+            break;
+        case "Fortran":
+            code = `    program hello
+    print *,"Hello World!"
+end program hello`;
+            break;
+        case "Go":
+            code = `    package main
+
+import "fmt"
+func main() {
+    fmt.Println("hello world")
+}`;
+            break;
+        case "Java":
+            code = `    public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}`;
+            break;
+        default:
+        code = "...";
+    }
+    document.getElementById("codeArea").value = code;
+});
+    </script>
+</body>
+</html>
